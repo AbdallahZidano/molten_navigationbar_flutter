@@ -166,23 +166,19 @@ class MoltenBottomNavigationBar extends StatelessWidget {
                 bottom: 0,
                 left: _tabWidth * index,
                 width: _normalizeDomeOnEdge(_tabWidth, index),
-                child: InkWell(
-                  onTap: () => onTabChange(index),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: _MoltenTabWrapper(
-                          tab: entry.value,
-                          onTab: () {},
-                          isSelected: isSelected,
-                          circleSize: domeCircleSize,
-                        ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
+                      child: _MoltenTabWrapper(
+                        tab: entry.value,
+                        onTab: onTabChange(index),
+                        isSelected: isSelected,
+                        circleSize: domeCircleSize,
                       ),
-                      // const SizedBox(height: 8),
-                      if (!isSelected && title != null) title,
-                    ],
-                  ),
+                    ),
+                    if (!isSelected && title != null) title,
+                  ],
                 ),
               );
             }).toList(),
